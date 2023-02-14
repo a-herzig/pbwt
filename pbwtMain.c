@@ -448,13 +448,18 @@ int main (int argc, char *argv[])
       { 
 	int npr=100;
 	int ploidy=2;
-	int nargs=2;
-       	if(argc>2) if(argv[2][0] !='-') {
+	int L=1;
+	int nargs=3;
+	       	if(argc>2) if(argv[2][0] !='-') {
 	    npr=atoi(argv[2]);
 	    ++nargs;
 	  }
        	if(argc>3) if(argv[3][0] !='-') {
 	    ploidy=atoi(argv[3]);
+	    ++nargs;
+	  }
+	  if(argc>4) if(argv[4][0] !='-') {
+	    L=atoi(argv[4]);
 	    ++nargs;
 	  }
 	paintAncestryMatrix (p, argv[1],npr,ploidy,L) ; 
@@ -464,8 +469,7 @@ int main (int argc, char *argv[])
       { 
 	int npr=100;
 	int ploidy=2;
-	int nargs=3;
-	int L=1;
+	int nargs=2;
 	double thresh=0;
        	if(argc>2) if(argv[2][0] !='-') {
 	    npr=atoi(argv[2]);
