@@ -448,7 +448,7 @@ int main (int argc, char *argv[])
       { 
 	int npr=100;
 	int ploidy=2;
-	int L=1;
+	int L=0;
 	int nargs=3;
 	       	if(argc>2) if(argv[2][0] !='-') {
 	    npr=atoi(argv[2]);
