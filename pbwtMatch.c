@@ -82,7 +82,7 @@ static void matchLongWithin1 (PBWT *p, int T,
   free(a) ; free(b) ;  pbwtCursorDestroy (u) ;
 }
 
-static void matchLongWithin2 (PBWT *p, int T, 
+void matchLongWithin2 (PBWT *p, int T, 
 			      void (*report)(int ai, int bi, int start, int end))
 /* alternative giving start - it turns out in tests that this is also faster, so use it */
 {
