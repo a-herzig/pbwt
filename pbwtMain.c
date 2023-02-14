@@ -457,14 +457,15 @@ int main (int argc, char *argv[])
 	    ploidy=atoi(argv[3]);
 	    ++nargs;
 	  }
-	paintAncestryMatrix (p, argv[1],npr,ploidy) ; 
+	paintAncestryMatrix (p, argv[1],npr,ploidy,L) ; 
 	argc-=nargs;argv+=nargs;
       }
     else if (!strcmp (argv[0], "-paintSparse") && argc > 1)
       { 
 	int npr=100;
 	int ploidy=2;
-	int nargs=2;
+	int nargs=3;
+	int L=1;
 	double thresh=0;
        	if(argc>2) if(argv[2][0] !='-') {
 	    npr=atoi(argv[2]);
