@@ -459,7 +459,7 @@ int main (int argc, char *argv[])
 	    ++nargs;
 	  }
 	  if(argc>4) if(argv[4][0] !='-') {
-	    L1=atoi(argv[4]);
+	    L=atoi(argv[4]);
 	    ++nargs;
 	  }
 	paintAncestryMatrix (p, argv[1],npr,ploidy,L) ; 
