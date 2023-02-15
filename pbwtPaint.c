@@ -81,7 +81,7 @@ void paintAncestryMatrix (PBWT *p, char* fileRoot,int chunksperregion,int ploidy
 
   maxMatch = myalloc (p->M, Array) ;
   for (i = 0 ; i < p->M ; ++i) maxMatch[i] = arrayCreate (1024, MatchSegment) ;
-  matchLongWithin2 (p,L1, reportMatch) ;  /* store maximal matches in maxMatch */
+  matchLongWithin2 (p,L, reportMatch) ;  /* store maximal matches in maxMatch */
   double *partCounts = myalloc (Ninds, double) ;
   /* now weight per site based on distance from ends */
 
