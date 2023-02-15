@@ -468,7 +468,7 @@ int main (int argc, char *argv[])
 	    L2=atoi(argv[5]);
 	    ++nargs;
 	  }
-	paintAncestryMatrix (p, argv[1],npr,ploidy,L) ; 
+	paintAncestryMatrix (p, argv[1],npr,ploidy,L1,L2) ; 
 	argc-=nargs;argv+=nargs;
       }
     else if (!strcmp (argv[0], "-paintSparse") && argc > 1)
