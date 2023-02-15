@@ -448,9 +448,8 @@ int main (int argc, char *argv[])
       { 
 	int npr=100;
 	int ploidy=2;
-	int L1=0;
-	int L2=1000000;
-	int nargs=4;
+	int L=0;
+	int nargs=3;
 	       	if(argc>2) if(argv[2][0] !='-') {
 	    npr=atoi(argv[2]);
 	    ++nargs;
@@ -463,11 +462,7 @@ int main (int argc, char *argv[])
 	    L1=atoi(argv[4]);
 	    ++nargs;
 	  }
-	  if(argc>5) if(argv[5][0] !='-') {
-	    L2=atoi(argv[5]);
-	    ++nargs;
-	  }
-	paintAncestryMatrix (p, argv[1],npr,ploidy,L1,L2) ; 
+	paintAncestryMatrix (p, argv[1],npr,ploidy,L) ; 
 	argc-=nargs;argv+=nargs;
       }
     else if (!strcmp (argv[0], "-paintSparse") && argc > 1)
