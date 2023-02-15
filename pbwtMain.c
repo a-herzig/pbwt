@@ -463,7 +463,6 @@ int main (int argc, char *argv[])
 	    L1=atoi(argv[4]);
 	    ++nargs;
 	  }
-	  }
 	  if(argc>5) if(argv[5][0] !='-') {
 	    L2=atoi(argv[5]);
 	    ++nargs;
