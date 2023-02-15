@@ -112,6 +112,36 @@ void matchLongWithin2 (PBWT *p, int T,
   pbwtCursorDestroy (u) ;
 }
 
+void matchLongWithin3 (PBWT *p, int T1, int T2, 
+			      void (*report)(int ai, int bi, int start, int end))
+/* alternative giving start - it turns out in tests that this is also faster, so use it */
+{
+  int i, i0 = 0, ia, ib, na = 0, nb = 0, dmin, k ;
+  PbwtCursor *u = pbwtCursorCreate (p, TRUE, TRUE) ;
+
+  for (k = 0 ; k <= p->N ; ++k)
+    { for (i = 0 ; i < u->M ; ++i)
+	{ if (u->d[i] > k-T1 && u->d[i] < k-T2)
+	    { if (na && nb)		/* then there is something to report */
+		for (ia = i0 ; ia < i ; ++ia)
+		  for (ib = ia+1, dmin = 0 ; ib < i ; ++ib)
+		    { if (u->d[ib] > dmin) dmin = u->d[ib] ;
+		      if (u->y[ib] != u->y[ia])
+			(*report) (u->a[ia], u->a[ib], dmin, k) ;
+		    }
+	      na = 0 ; nb = 0 ; i0 = i ;
+	    }
+	  if (u->y[i] == 0)
+	    na++ ;
+	  else
+	    nb++ ;
+	}
+      pbwtCursorForwardsReadAD (u, k) ;
+    }
+
+  pbwtCursorDestroy (u) ;
+}
+
 void matchMaximalWithin (PBWT *p, void (*report)(int ai, int bi, int start, int end))
 /* algorithm 4 in paper */
 {
